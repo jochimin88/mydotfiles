@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo pacman -Syu --nocomfirm
-sudo pacman -S net-tools speedtest-cli python-pip git base-devel bat lsd wget kitty neovim go --noconfirm
+sudo pacman -S net-tools unrar speedtest-cli python-pip git base-devel bat lsd wget kitty neovim go --noconfirm
 
 # Install Yay
 
@@ -9,6 +9,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si --noconfirm
 yay
+cd ..
 
 # blackarch repo
 curl -s -O https://blackarch.org/strap.sh && chmod +x strap.sh
@@ -17,7 +18,7 @@ sudo ./strap.sh
 
 sudo pacman -Syu --nocomfirm
 
-# To Install SearchSploit way
+# To Install SearchSploit way and some hacking tools
 sudo pacman -S exploitdb whatweb gobuster dirbuster wfuzz wpscan metasploit nmap responder evil-winrm --noconfirm
 
 # Install node versioner
@@ -30,7 +31,7 @@ nvm install --lts
 
 #create folder fonts
 mkdir fonts
-
+cd fonts/
 # download fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
