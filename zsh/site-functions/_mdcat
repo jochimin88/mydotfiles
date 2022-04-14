@@ -1,0 +1,45 @@
+#compdef mdcat
+
+autoload -U is-at-least
+
+_mdcat() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'--columns=[Maximum number of columns to use for output]: : ' \
+'-h[Print help information]' \
+'--help[Print help information]' \
+'-V[Print version information]' \
+'--version[Print version information]' \
+'-p[Paginate the output of mdcat with a pager like less.]' \
+'--paginate[Paginate the output of mdcat with a pager like less.]' \
+'-P[Do not page output.  Default if invoked as mdcat]' \
+'--no-pager[Do not page output.  Default if invoked as mdcat]' \
+'-c[Disable all colours and other styles.]' \
+'--no-colour[Disable all colours and other styles.]' \
+'-l[Do not load remote resources like images]' \
+'--local[Do not load remote resources like images]' \
+'--dump-events[Dump Markdown parser events and exit]' \
+'--fail[Exit immediately if any error occurs processing an input file]' \
+'--detect-only[Only detect the terminal type and exit]' \
+'(-c --no-colour)--ansi-only[Limit to standard ANSI formatting]' \
+'*::filenames -- The file to read.  If - read from standard input instead:' \
+&& ret=0
+}
+
+(( $+functions[_mdcat_commands] )) ||
+_mdcat_commands() {
+    local commands; commands=()
+    _describe -t commands 'mdcat commands' commands "$@"
+}
+
+_mdcat "$@"
