@@ -23,6 +23,6 @@ To deploy this project run
 
 ## Authors
 
-- [@katherinepeterson](https://www.github.com/jochimin88)
+- [@jochimin88](https://www.github.com/jochimin88)
 
 
