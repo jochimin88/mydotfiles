@@ -66,6 +66,14 @@ chown jochimin zsh-sudo
 exit
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh 
 
+
+# generate SSH Key to connect to GitHub
+
+#ssh-keygen -t ed25519 -C "201905041@example.com"
+
+# start ssh-agent and generate pid
+#eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_ed2551
 # locate
 sudo pacman -S locate
 sudo updatedb
